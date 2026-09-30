@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVERYDAY — Tout au même endroit</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: #f6f7fb;
+  color: #172033;
+}
+
+header {
+  background: white;
+  padding: 18px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0 2px 15px #0000000b;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  color: #6558e8;
+  letter-spacing: -1px;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+nav a {
+  color: #42495b;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+nav a:hover { color: #6558e8; }
+
+.menu-btn {
+  display: none;
+  border: 0;
+  background: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+.hero {
+  padding: 95px 20px 80px;
+  text-align: center;
+  background:
+    radial-gradient(circle at 15% 20%, #dcd8ff 0, transparent 30%),
+    radial-gradient(circle at 85% 80%, #d5edff 0, transparent 30%),
+    #f6f7fb;
+}
+
+.tag {
+  display: inline-block;
+  background: #e9e6ff;
+  color: #6558e8;
+  padding: 9px 16px;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(38px, 7vw, 68px);
+  line-height: 1.08;
+  letter-spacing: -3px;
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 span { color: #6558e8; }
+
+.hero p {
+  color: #737b8c;
+  font-size: 17px;
+  line-height: 1.7;
+  max-width: 560px;
+  margin: 22px auto 30px;
+}
+
+.search {
+  max-width: 570px;
+  margin: auto;
+  display: flex;
+  background: white;
+  padding: 7px;
+  border-radius: 15px;
+  box-shadow: 0 10px 35px #29234a12;
+  border: 1px solid #ededf5;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 14px;
+  font-size: 15px;
+}
+
+.search button, .primary {
+  background: #6558e8;
+  color: white;
+  border: none;
+  padding: 14px 22px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search button:hover, .primary:hover {
+  background: #5043d2;
+}
+
+.section {
+  padding: 65px 7%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 28px;
+}
+
+.section h2 {
+  font-size: 30px;
+  letter-spacing: -1px;
+}
+
+.section-head p {
+  color: #858b99;
+  margin-top: 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border: 1px solid #ececf3;
+  border-radius: 18px;
+  padding: 25px;
+  transition: .2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 35px #17152a12;
+}
+
+.emoji {
+  font-size: 30px;
+  background: #f0efff;
+  width: 57px;
+  height: 57px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: #858b99;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.card a {
+  color: #6558e8;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.banner {
+  margin: 20px 7% 70px;
+  padding: 50px;
+  border-radius: 25px;
+  color: white;
+  background: linear-gradient(120deg, #6558e8, #8c79f5);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.banner h2 {
+  font-size: 30px;
+  margin-bottom: 12px;
+}
+
+.banner p {
+  color: #e8e5ff;
+  line-height: 1.6;
+}
+
+.banner button {
+  background: white;
+  color: #6558e8;
+  border: 0;
+  padding: 15px 22px;
+  border-radius: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+footer {
+  background: white;
+  padding: 35px 7%;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  color: #858b99;
+  font-size: 13px;
+}
+
+footer a {
+  color: #6558e8;
+  text-decoration: none;
+}
+
+.empty {
+  display: none;
+  text-align: center;
+  color: #858b99;
+  padding: 30px;
+}
+
+@media(max-width: 750px) {
+  .menu-btn { display: block; }
+
+  nav {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: white;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 22px;
+    box-shadow: 0 12px 15px #0000000b;
+  }
+
+  nav.open { display: flex; }
+
+  .grid { grid-template-columns: 1fr; }
+
+  .hero { padding: 70px 20px; }
+
+  .hero h1 { letter-spacing: -2px; }
+
+  .banner {
+    margin: 10px 5% 50px;
+    padding: 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  footer {
+    flex-direction: column;
+  }
+
+  .section { padding: 45px 6%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">EVERYDAY.</div>
+
+  <button class="menu-btn" onclick="toggleMenu()"
+          aria-label="Ouvrir le menu">☰</button>
+
+  <nav id="menu">
+    <a href="#accueil" onclick="closeMenu()">Accueil</a>
+    <a href="#outils" onclick="closeMenu()">Outils</a>
+    <a href="#idees" onclick="closeMenu()">Découvrir</a>
+    <a href="#apropos" onclick="closeMenu()">À propos</a>
+  </nav>
+</header>
+
+<main>
+<section class="hero" id="accueil">
+  <div class="tag">✦ UN SEUL SITE, PLEIN DE POSSIBILITÉS</div>
+
+  <h1>Tout ce dont tu as besoin, <span>au même endroit.</span></h1>
+
+  <p>
+    Des outils, des idées et des découvertes pour simplifier
+    ton quotidien. Bienvenue sur ton nouvel espace préféré.
+  </p>
+
+  <div class="search">
+    <input id="searchInput" type="search"
+           placeholder="Tu recherches quoi ?"
+           aria-label="Rechercher un outil">
+    <button onclick="searchCards()">Rechercher</button>
+  </div>
+</section>
+
+<section class="section" id="outils">
+  <div class="section-head">
+    <div>
+      <h2>Les outils du quotidien</h2>
+      <p>Des petites choses qui peuvent te faire gagner du temps.</p>
+    </div>
+  </div>
+
+  <div class="grid" id="toolsGrid">
+    <article class="card" data-search="calculatrice calcul maths">
+      <div class="emoji">🧮</div>
+      <h3>Calculatrice</h3>
+      <p>Effectue rapidement tes calculs et tes opérations.</p>
+      <a href="https://www.google.com/search?q=calculatrice"
+         target="_blank" rel="noopener">Utiliser →</a>
+    </article>
+
+    <article class="card" data-search="météo temps température pluie">
+      <div class="emoji">🌤️</div>
+      <h3>La météo</h3>
+      <p>Découvre le temps qu'il fait et prépare ta journée.</p>
+      <a href="https://www.google.com/search?q=météo"
+         target="_blank" rel="noopener">Découvrir →</a>
+    </article>
+
+    <article class="card" data-search="notes écrire organisation liste">
+      <div class="emoji">📝</div>
+      <h3>Mes notes</h3>
+      <p>Un espace pour écrire tes idées et tes petites listes.</p>
+      <a href="#notes">Écrire →</a>
+    </article>
+
+    <article class="card" data-search="horloge heure fuseau horaire">
+      <div class="emoji">🕒</div>
+      <h3>L'heure</h3>
+      <p>Consulte l'heure et organise tes rendez-vous.</p>
+      <a href="https://time.is/"
+         target="_blank" rel="noopener">Voir l'heure →</a>
+    </article>
+
+    <article class="card" data-search="recettes cuisine repas manger">
+      <div class="emoji">🍝</div>
+      <h3>Des recettes</h3>
+      <p>Explore des idées de repas pour varier ton quotidien.</p>
+      <a href="https://www.google.com/search?q=recettes"
+         target="_blank" rel="noopener">Explorer →</a>
+    </article>
+
+    <article class="card" data-search="musique écouter chansons">
+      <div class="emoji">🎵</div>
+      <h3>La musique</h3>
+      <p>Retrouve des chansons et découvre de nouveaux sons.</p>
+      <a href="https://www.youtube.com/"
+         target="_blank" rel="noopener">Écouter →</a>
+    </article>
+  </div>
+  <div class="empty" id="empty">Aucun outil trouvé.</div>
+</section>
+
+<section class="section" id="notes">
+  <div class="section-head">
+    <div>
+      <h2>Ton petit espace personnel</h2>
+      <p>Écris une idée ou une note directement ici.</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <textarea id="myNote" rows="5"
+      placeholder="Écris quelque chose..."
+      style="width:100%;padding:15px;border:1px solid #ddd;
+      border-radius:12px;resize:vertical;font-size:15px;"></textarea>
+    <br><br>
+    <button class="primary" onclick="saveNote()">Enregistrer</button>
+    <span id="saved" style="margin-left:12px;color:#6558e8;"></span>
+  </div>
+</section>
+
+<section class="section" id="idees">
+  <div class="section-head">
+    <div>
+      <h2>À découvrir</h2>
+      <p>Quelques endroits pour trouver de l'inspiration.</p>
+    </div>
+  </div>
+
+  <div class="grid">
+    <article class="card">
+      <div class="emoji">🌍</div>
+      <h3>Le monde</h3>
+      <p>Découvre des lieux, des cultures et des informations.</p>
+      <a href="https://www.wikipedia.org/"
+         target="_blank" rel="noopener">Explorer →</a>
+    </article>
+
+    <article class="card">
+      <div class="emoji">💡</div>
+      <h3>Apprendre</h3>
+      <p>Développe tes connaissances et découvre de nouvelles idées.</p>
+      <a href="https://www.khanacademy.org/"
+         target="_blank" rel="noopener">Apprendre →</a>
+    </article>
+
+    <article class="card">
+      <div class="emoji">🎨</div>
+      <h3>Créer</h3>
+      <p>Imagine des projets et donne vie à ta créativité.</p>
+      <a href="https://www.canva.com/"
+         target="_blank" rel="noopener">Créer →</a>
+    </article>
+  </div>
+</section>
+
+<section class="banner" id="apropos">
+  <div>
+    <h2>Une seule adresse. Des possibilités infinies.</h2>
+    <p>EVERYDAY évolue avec les idées et les besoins de ses visiteurs.</p>
+  </div>
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    Retour en haut ↑
+  </button>
+</section>
+</main>
+
+<footer>
+  <div><strong style="color:#6558e8">EVERYDAY.</strong>
+    — Ton espace du quotidien.</div>
+  <div>© 2026 EVERYDAY · Projet indépendant</div>
+</footer>
+
+<script>
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("open");
+}
+
+function closeMenu() {
+  document.getElementById("menu").classList.remove("open");
+}
+
+function searchCards() {
+  const query = document.getElementById("searchInput")
+    .value.toLowerCase().trim();
+
+  const cards = document.querySelectorAll("#toolsGrid .card");
+  let count = 0;
+
+  cards.forEach(card => {
+    const text = (card.innerText + " " +
+      card.dataset.search).toLowerCase();
+
+    const match = text.includes(query);
+    card.style.display = match ? "" : "none";
+    if (match) count++;
+  });
+
+  document.getElementById("empty").style.display =
+    count === 0 ? "block" : "none";
+
+  document.getElementById("outils").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+document.getElementById("searchInput")
+  .addEventListener("keydown", function(event) {
+    if (event.key === "Enter") searchCards();
+  });
+
+function saveNote() {
+  const note = document.getElementById("myNote").value;
+
+  try {
+    localStorage.setItem("everyday-note", note);
+    document.getElementById("saved").textContent =
+      "Note enregistrée sur cet appareil !";
+  } catch (error) {
+    document.getElementById("saved").textContent =
+      "Enregistrement indisponible.";
+  }
+}
+
+try {
+  document.getElementById("myNote").value =
+    localStorage.getItem("everyday-note") || "";
+} catch (error) {}
+</script>
+
+</body>
+</html>
+Ce que ton site possède déjà
